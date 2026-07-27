@@ -34,17 +34,11 @@ export function Gallery() {
             Residence &amp; Resort, in Light
           </h2>
         </div>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gridAutoRows: 180,
-            gap: "var(--space-3)",
-          }}
-        >
+        <div className="gallery-grid" style={{ gap: "var(--space-3)" }}>
           {galleryItems.map((item, i) => (
             <div
               key={item.id}
+              className="gallery-item"
               style={{
                 gridRow: `span ${item.tall ? 2 : 1}`,
                 cursor: "pointer",

@@ -10,8 +10,15 @@ const navLinkStyle: React.CSSProperties = {
   opacity: 0.9,
 };
 
+const navLinks = [
+  { href: "#discover", label: "The Building" },
+  { href: "#gallery", label: "Gallery" },
+  { href: "#discover-punta", label: "Punta del Este" },
+];
+
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -19,6 +26,11 @@ export function Nav() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const reserveStyle: React.CSSProperties = {
+    borderColor: scrolled ? undefined : "rgba(255,255,255,0.6)",
+    color: scrolled ? undefined : "#fff",
+  };
 
   return (
     <nav
@@ -43,27 +55,75 @@ export function Nav() {
       <span className="nav-brand" style={{ letterSpacing: "0.18em" }}>
         ELIOS
       </span>
-      <div style={{ display: "flex", alignItems: "center", gap: "var(--space-4)" }}>
-        <a href="#discover" style={navLinkStyle}>
-          The Building
-        </a>
-        <a href="#gallery" style={navLinkStyle}>
-          Gallery
-        </a>
-        <a href="#discover-punta" style={navLinkStyle}>
-          Punta del Este
-        </a>
-        <a
-          href="#booking"
-          className="btn btn-secondary"
-          style={{
-            borderColor: scrolled ? undefined : "rgba(255,255,255,0.6)",
-            color: scrolled ? undefined : "#fff",
-          }}
-        >
+
+      <div className="nav-desktop-group">
+        {navLinks.map((link) => (
+          <a key={link.href} href={link.href} style={navLinkStyle}>
+            {link.label}
+          </a>
+        ))}
+        <a href="#booking" className="btn btn-secondary" style={reserveStyle}>
           Request Reservation
         </a>
       </div>
+
+      <a
+        href="#booking"
+        className="btn btn-secondary nav-mobile-reserve"
+        style={{
+          ...reserveStyle,
+          position: "absolute",
+          left: "50%",
+          top: "50%",
+          transform: "translate(-50%, -50%)",
+        }}
+      >
+        Request Reservation
+      </a>
+
+      <button
+        type="button"
+        className="nav-burger"
+        aria-label="Menu"
+        aria-expanded={menuOpen}
+        onClick={() => setMenuOpen((open) => !open)}
+      >
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
+          {menuOpen ? (
+            <path d="M6 6l12 12M18 6L6 18" />
+          ) : (
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          )}
+        </svg>
+      </button>
+
+      {menuOpen && (
+        <div
+          style={{
+            position: "absolute",
+            top: "100%",
+            left: 0,
+            right: 0,
+            display: "flex",
+            flexDirection: "column",
+            gap: "var(--space-3)",
+            padding: "var(--space-4) var(--space-5)",
+            background: "var(--color-bg)",
+            borderBottom: "1px solid var(--color-divider)",
+          }}
+        >
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => setMenuOpen(false)}
+              style={{ ...navLinkStyle, color: "var(--color-text)", opacity: 1 }}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      )}
     </nav>
   );
 }

@@ -140,7 +140,7 @@ export function BuildingAmenities() {
           </p>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "var(--space-6)" }}>
+        <div className="amenity-photos-grid" style={{ display: "grid", gap: "var(--space-6)" }}>
           <div className="plate" style={{ height: 440 }}>
             <ImageSlot label="Rooftop infinity pool" />
           </div>

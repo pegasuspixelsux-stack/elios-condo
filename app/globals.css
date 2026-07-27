@@ -260,3 +260,54 @@ textarea.input {
   font-size: 18px;
   margin-right: auto;
 }
+
+.nav-desktop-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+.nav-mobile-reserve {
+  display: none;
+}
+.nav-burger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 6px;
+  color: inherit;
+  cursor: pointer;
+}
+
+.amenity-photos-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 180px;
+}
+
+@media (max-width: 768px) {
+  .nav-desktop-group {
+    display: none;
+  }
+  .nav-mobile-reserve {
+    display: inline-flex;
+  }
+  .nav-burger {
+    display: inline-flex;
+  }
+  .amenity-photos-grid {
+    grid-template-columns: 1fr;
+  }
+  .gallery-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  .gallery-item {
+    height: 220px;
+  }
+}
