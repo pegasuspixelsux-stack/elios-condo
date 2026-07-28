@@ -43,7 +43,14 @@ export const property = {
   views: "Ocean View",
   parking: 2,
   pricePerNight: 980,
+  lowSeasonPrice: 980,
+  highSeasonPrice: 1980,
 };
+
+// High season runs December through March; low season runs April through November.
+export function isHighSeason(month: number) {
+  return month === 11 || month <= 2;
+}
 
 export const heroSlides: HeroSlide[] = [
   { id: "hero-ocean", placeholder: "Panoramic Atlantic Ocean view", src: "/images/hero/panoramic.png" },
@@ -73,12 +80,14 @@ export const residenceRows: ResidenceRow[] = [
     kicker: "Kitchen & Dining",
     title: "Set for entertaining, or for no one at all",
     copy: "A fully equipped kitchen and a table for eight make the residence equally suited to a quiet breakfast or a long, unhurried dinner.",
+    src: "/images/gallery/dining-room.png",
   },
   {
     imgId: "res-terrace",
     kicker: "Private Terrace",
     title: "Where the day tends to end",
     copy: "Wide enough for lounging and dining alike, the terrace turns every sunset over Playa Brava into part of the apartment itself.",
+    src: "/images/gallery/terrace.png",
   },
   {
     imgId: "res-guest",

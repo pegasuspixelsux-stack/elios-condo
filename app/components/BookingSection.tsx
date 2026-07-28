@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { property, whatsappHref } from "../lib/property-data";
+import { isHighSeason, property, whatsappHref } from "../lib/property-data";
 
 function useCalendar(monthOffset: number) {
   return useMemo(() => {
@@ -10,12 +10,13 @@ function useCalendar(monthOffset: number) {
     const monthLabel = month.toLocaleString("en-US", { month: "long", year: "numeric" });
     const firstWeekday = month.getDay();
     const daysInMonth = new Date(month.getFullYear(), month.getMonth() + 1, 0).getDate();
+    const price = isHighSeason(month.getMonth()) ? property.highSeasonPrice : property.lowSeasonPrice;
 
-    const cells: { day: number | ""; blocked: boolean }[] = [];
+    const cells: { day: number | ""; blocked: boolean; price?: number }[] = [];
     for (let i = 0; i < firstWeekday; i++) cells.push({ day: "", blocked: false });
     for (let d = 1; d <= daysInMonth; d++) {
       const blocked = d % 7 === 0 || d % 11 === 0 || (d >= 12 && d <= 15);
-      cells.push({ day: d, blocked });
+      cells.push({ day: d, blocked, price });
     }
     return { monthLabel, cells };
   }, [monthOffset]);
@@ -132,17 +133,19 @@ export function BookingSection() {
                     : {
                         aspectRatio: "1",
                         display: "flex",
+                        flexDirection: "column",
                         alignItems: "center",
                         justifyContent: "center",
-                        borderRadius: "50%",
-                        fontSize: 13,
+                        borderRadius: "var(--radius-md)",
                         background: cell.blocked ? "var(--color-neutral-200)" : "var(--color-accent-100)",
                         color: cell.blocked ? "var(--color-neutral-500)" : "var(--color-text)",
-                        textDecoration: cell.blocked ? "line-through" : "none",
                       }
                 }
               >
-                {cell.day}
+                <span style={{ fontSize: 13, textDecoration: cell.blocked ? "line-through" : "none" }}>{cell.day}</span>
+                {cell.day !== "" && !cell.blocked && (
+                  <span style={{ fontSize: 9, color: "var(--color-accent-700)" }}>${cell.price}</span>
+                )}
               </div>
             ))}
           </div>
@@ -186,18 +189,33 @@ export function BookingSection() {
           className="card elev-md"
           style={{ padding: "var(--space-6)", display: "flex", flexDirection: "column", gap: "var(--space-4)" }}
         >
-          <div>
-            <div style={{ fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--color-neutral-600)" }}>
-              Starting From
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
+            <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between" }}>
+              <div>
+                <div style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--color-neutral-600)" }}>
+                  Low Season · Apr–Nov
+                </div>
+                <div style={{ display: "flex", alignItems: "baseline", gap: "var(--space-2)" }}>
+                  <span style={{ color: "var(--color-neutral-600)", fontSize: 13 }}>Starting at</span>
+                  <span style={{ fontFamily: "var(--font-heading)", fontSize: 32, fontWeight: "var(--font-heading-weight)" }}>
+                    ${property.lowSeasonPrice}
+                  </span>
+                  <span style={{ color: "var(--color-neutral-600)", fontSize: 13 }}>/ night</span>
+                </div>
+              </div>
+              <span className="tag tag-accent">Seasonal pricing</span>
             </div>
-            <div style={{ display: "flex", alignItems: "baseline", gap: "var(--space-3)" }}>
-              <span style={{ fontFamily: "var(--font-heading)", fontSize: 40, fontWeight: "var(--font-heading-weight)" }}>
-                ${property.pricePerNight}
-              </span>
-              <span style={{ color: "var(--color-neutral-600)" }}>/ night</span>
-              <span className="tag tag-accent" style={{ marginLeft: "auto" }}>
-                Seasonal pricing
-              </span>
+            <div>
+              <div style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--color-neutral-600)" }}>
+                High Season · Dec–Mar
+              </div>
+              <div style={{ display: "flex", alignItems: "baseline", gap: "var(--space-2)" }}>
+                <span style={{ color: "var(--color-neutral-600)", fontSize: 13 }}>Starting at</span>
+                <span style={{ fontFamily: "var(--font-heading)", fontSize: 32, fontWeight: "var(--font-heading-weight)" }}>
+                  ${property.highSeasonPrice}
+                </span>
+                <span style={{ color: "var(--color-neutral-600)", fontSize: 13 }}>/ night</span>
+              </div>
             </div>
           </div>
           <div className="hr" />
