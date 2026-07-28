@@ -19,6 +19,7 @@ export type GalleryItem = {
   id: string;
   placeholder: string;
   tall?: boolean;
+  src?: string;
 };
 
 export type Distance = {
@@ -103,15 +104,15 @@ export const buildingAmenities: string[] = [
 ];
 
 export const galleryItems: GalleryItem[] = [
-  { id: "gal-lobby", placeholder: "Tower lobby", tall: true },
-  { id: "gal-livingroom", placeholder: "Apartment living room" },
-  { id: "gal-outdoorpool", placeholder: "Outdoor pool deck" },
-  { id: "gal-terrace", placeholder: "Private terrace ocean view", tall: true },
-  { id: "gal-gym", placeholder: "Fitness studio" },
-  { id: "gal-spa", placeholder: "Spa treatment room" },
-  { id: "gal-facade", placeholder: "Building facade at night" },
-  { id: "gal-sunset", placeholder: "Sunset over Playa Brava", tall: true },
-  { id: "gal-indoorpool", placeholder: "Indoor heated pool" },
+  { id: "gal-lobby", placeholder: "Tower lobby", tall: true, src: "/images/amenities/lobby.png" },
+  { id: "gal-dining", placeholder: "Kitchen & Dining", src: "/images/gallery/dining-room.png" },
+  { id: "gal-pool", placeholder: "Indoor heated pool", src: "/images/amenities/pool.png" },
+  { id: "gal-terrace", placeholder: "Private terrace ocean view", tall: true, src: "/images/gallery/terrace.png" },
+  { id: "gal-gym", placeholder: "Fitness studio", src: "/images/amenities/fitness.png" },
+  { id: "gal-masterbath", placeholder: "Master bathroom", src: "/images/gallery/master-bathroom.png" },
+  { id: "gal-dressing", placeholder: "Dressing room", src: "/images/gallery/dressing-room.png" },
+  { id: "gal-guestbedroom", placeholder: "Guest bedroom", tall: true, src: "/images/gallery/guest-bedroom.png" },
+  { id: "gal-workspace", placeholder: "Workspace", src: "/images/gallery/workspace.png" },
 ];
 
 export const distances: Distance[] = [

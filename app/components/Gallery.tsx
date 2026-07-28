@@ -47,7 +47,7 @@ export function Gallery() {
               }}
               onClick={() => setLightboxIndex(i)}
             >
-              <ImageSlot label={item.placeholder} />
+              <ImageSlot label={item.placeholder} src={item.src} />
             </div>
           ))}
         </div>
@@ -70,7 +70,7 @@ export function Gallery() {
             style={{ width: "min(1100px,90vw)", height: "min(720px,80vh)" }}
             onClick={(e) => e.stopPropagation()}
           >
-            <ImageSlot label={activeItem.placeholder} />
+            <ImageSlot label={activeItem.placeholder} src={activeItem.src} />
           </div>
           <button
             type="button"

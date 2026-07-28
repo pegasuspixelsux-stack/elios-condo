@@ -142,10 +142,10 @@ export function BuildingAmenities() {
 
         <div className="amenity-photos-grid" style={{ display: "grid", gap: "var(--space-6)" }}>
           <div className="plate" style={{ height: 440 }}>
-            <ImageSlot label="Rooftop infinity pool" />
+            <ImageSlot label="Indoor heated pool & spa" src="/images/amenities/pool.png" />
           </div>
           <div className="plate" style={{ height: 440 }}>
-            <ImageSlot label="Tower lobby" />
+            <ImageSlot label="Tower lobby" src="/images/amenities/lobby.png" />
           </div>
         </div>
 
