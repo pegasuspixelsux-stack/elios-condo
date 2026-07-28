@@ -55,7 +55,7 @@ export function BookingSection() {
         </p>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: "var(--space-7)" }}>
+      <div className="booking-grid" style={{ gap: "var(--space-7)" }}>
         <div className="card elev-sm" style={{ padding: "var(--space-6)" }}>
           <div
             style={{

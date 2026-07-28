@@ -258,19 +258,25 @@ textarea.input {
   font-family: var(--font-heading);
   font-weight: var(--font-heading-weight);
   font-size: 18px;
-  margin-right: auto;
 }
 
-.nav-desktop-group {
+.nav-bar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  width: 100%;
+}
+.nav-center-links {
+  justify-self: center;
   display: flex;
   align-items: center;
   gap: var(--space-4);
 }
-.nav-mobile-reserve {
-  display: none;
+.nav-desktop-reserve {
+  justify-self: end;
 }
 .nav-burger {
   display: none;
+  justify-self: end;
   align-items: center;
   justify-content: center;
   background: transparent;
@@ -290,15 +296,35 @@ textarea.input {
   grid-auto-rows: 180px;
 }
 
+.location-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+}
+
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+}
+
 @media (max-width: 768px) {
-  .nav-desktop-group {
+  .nav-bar {
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+  }
+  .nav-center-links {
     display: none;
   }
-  .nav-mobile-reserve {
-    display: inline-flex;
+  .nav-desktop-reserve {
+    display: none;
   }
   .nav-burger {
     display: inline-flex;
+  }
+  .location-grid {
+    grid-template-columns: 1fr;
+  }
+  .booking-grid {
+    grid-template-columns: 1fr;
   }
   .amenity-photos-grid {
     grid-template-columns: 1fr;

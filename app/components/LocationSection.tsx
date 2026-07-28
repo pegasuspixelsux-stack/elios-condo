@@ -13,11 +13,10 @@ export function LocationSection() {
   return (
     <section id="discover-punta" style={{ background: "var(--color-surface)", padding: "var(--space-9) var(--space-6)" }}>
       <div
+        className="location-grid"
         style={{
           maxWidth: 1400,
           margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "1.1fr 0.9fr",
           gap: "var(--space-8)",
           alignItems: "center",
         }}

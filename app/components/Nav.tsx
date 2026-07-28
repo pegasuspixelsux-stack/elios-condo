@@ -34,15 +34,14 @@ export function Nav() {
 
   return (
     <nav
+      className="nav-bar"
       style={{
         position: "fixed",
         top: 0,
         left: 0,
         right: 0,
         zIndex: 60,
-        display: "flex",
         alignItems: "center",
-        justifyContent: "space-between",
         padding: scrolled ? "14px 40px" : "26px 40px",
         background: scrolled ? "var(--color-bg)" : "transparent",
         borderBottom: scrolled
@@ -52,32 +51,19 @@ export function Nav() {
         color: scrolled ? "var(--color-text)" : "#fff",
       }}
     >
-      <span className="nav-brand" style={{ letterSpacing: "0.18em" }}>
+      <span className="nav-brand" style={{ letterSpacing: "0.18em", justifySelf: "start" }}>
         ELIOS
       </span>
 
-      <div className="nav-desktop-group">
+      <div className="nav-center-links">
         {navLinks.map((link) => (
           <a key={link.href} href={link.href} style={navLinkStyle}>
             {link.label}
           </a>
         ))}
-        <a href="#booking" className="btn btn-secondary" style={reserveStyle}>
-          Request Reservation
-        </a>
       </div>
 
-      <a
-        href="#booking"
-        className="btn btn-secondary nav-mobile-reserve"
-        style={{
-          ...reserveStyle,
-          position: "absolute",
-          left: "50%",
-          top: "50%",
-          transform: "translate(-50%, -50%)",
-        }}
-      >
+      <a href="#booking" className="btn btn-secondary nav-desktop-reserve" style={reserveStyle}>
         Request Reservation
       </a>
 
@@ -122,6 +108,14 @@ export function Nav() {
               {link.label}
             </a>
           ))}
+          <a
+            href="#booking"
+            className="btn btn-secondary"
+            onClick={() => setMenuOpen(false)}
+            style={{ marginTop: "var(--space-1)" }}
+          >
+            Request Reservation
+          </a>
         </div>
       )}
     </nav>
