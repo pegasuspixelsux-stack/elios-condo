@@ -75,12 +75,14 @@ export function Hero() {
       />
 
       <div
+        className="section-pad-x-8"
         style={{
           position: "absolute",
           left: 0,
           right: 0,
           bottom: 0,
-          padding: "0 var(--space-8) var(--space-8)",
+          paddingTop: 0,
+          paddingBottom: "var(--space-8)",
           display: "flex",
           flexDirection: "column",
           gap: "var(--space-5)",

@@ -26,7 +26,7 @@ export function BookingSection() {
   const { monthLabel, cells } = useCalendar(monthOffset);
 
   return (
-    <section id="booking" style={{ maxWidth: 1400, margin: "0 auto", padding: "var(--space-9) var(--space-6)" }}>
+    <section id="booking" className="section-pad-x-6" style={{ maxWidth: 1400, margin: "0 auto", paddingTop: "var(--space-9)", paddingBottom: "var(--space-9)" }}>
       <div style={{ textAlign: "center", maxWidth: 760, margin: "0 auto var(--space-7)" }}>
         <div className="tag tag-outline" style={{ marginBottom: "var(--space-3)" }}>
           Reservation

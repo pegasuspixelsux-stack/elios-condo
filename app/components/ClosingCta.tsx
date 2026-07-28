@@ -13,6 +13,7 @@ export function ClosingCta() {
         }}
       />
       <div
+        className="section-pad-x-6"
         style={{
           position: "absolute",
           inset: 0,
@@ -23,7 +24,8 @@ export function ClosingCta() {
           textAlign: "center",
           gap: "var(--space-5)",
           color: "#fff",
-          padding: "var(--space-6)",
+          paddingTop: "var(--space-6)",
+          paddingBottom: "var(--space-6)",
         }}
       >
         <h2

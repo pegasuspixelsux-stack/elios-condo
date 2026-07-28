@@ -109,7 +109,7 @@ const amenityCardStyle: React.CSSProperties = {
 
 export function BuildingAmenities() {
   return (
-    <section id="discover" style={{ background: "var(--color-surface)", padding: "var(--space-9) var(--space-6)" }}>
+    <section id="discover" className="section-pad-x-6" style={{ background: "var(--color-surface)", paddingTop: "var(--space-9)", paddingBottom: "var(--space-9)" }}>
       <div style={{ maxWidth: 1400, margin: "0 auto", display: "flex", flexDirection: "column", gap: "var(--space-8)" }}>
         <div style={{ textAlign: "center", maxWidth: 760, margin: "0 auto" }}>
           <div className="tag tag-outline" style={{ marginBottom: "var(--space-3)" }}>

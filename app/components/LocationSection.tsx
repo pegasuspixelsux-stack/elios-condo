@@ -11,7 +11,7 @@ const distanceRowStyle: React.CSSProperties = {
 
 export function LocationSection() {
   return (
-    <section id="discover-punta" style={{ background: "var(--color-surface)", padding: "var(--space-9) var(--space-6)" }}>
+    <section id="discover-punta" className="section-pad-x-6" style={{ background: "var(--color-surface)", paddingTop: "var(--space-9)", paddingBottom: "var(--space-9)" }}>
       <div
         className="location-grid"
         style={{
@@ -22,7 +22,7 @@ export function LocationSection() {
         }}
       >
         <div className="plate" style={{ height: 560, position: "relative" }}>
-          <ImageSlot label="Stylized illustrative map of Punta del Este peninsula" />
+          <ImageSlot label="Map of Punta del Este peninsula" src="/images/location/map.png" />
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-5)" }}>
           <div>

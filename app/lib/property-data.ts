@@ -85,6 +85,7 @@ export const residenceRows: ResidenceRow[] = [
     kicker: "Guest Bedrooms & Workspace",
     title: "Room for everyone, and a place to focus",
     copy: "Three additional bedrooms and a dedicated workspace mean the residence holds a full family, or a quiet work trip, with equal ease.",
+    src: "/images/residence/res-guest.png",
   },
 ];
 

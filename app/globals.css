@@ -306,7 +306,24 @@ textarea.input {
   grid-template-columns: 1.1fr 0.9fr;
 }
 
+.section-pad-x-6 {
+  padding-left: var(--space-6);
+  padding-right: var(--space-6);
+}
+.section-pad-x-8 {
+  padding-left: var(--space-8);
+  padding-right: var(--space-8);
+}
+
 @media (max-width: 768px) {
+  .section-pad-x-6 {
+    padding-left: var(--space-3);
+    padding-right: var(--space-3);
+  }
+  .section-pad-x-8 {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
   .nav-bar {
     grid-template-columns: auto auto;
     justify-content: space-between;

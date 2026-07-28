@@ -2,7 +2,7 @@ import { property, whatsappHref } from "../lib/property-data";
 
 export function Footer() {
   return (
-    <footer style={{ background: "var(--color-neutral-900)", color: "var(--color-neutral-100)", padding: "var(--space-7) var(--space-6)" }}>
+    <footer className="section-pad-x-6" style={{ background: "var(--color-neutral-900)", color: "var(--color-neutral-100)", paddingTop: "var(--space-7)", paddingBottom: "var(--space-7)" }}>
       <div
         style={{
           maxWidth: 1400,

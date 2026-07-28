@@ -4,10 +4,12 @@ import { residenceRows } from "../lib/property-data";
 export function ResidenceShowcase() {
   return (
     <section
+      className="section-pad-x-6"
       style={{
         maxWidth: 1400,
         margin: "0 auto",
-        padding: "var(--space-9) var(--space-6)",
+        paddingTop: "var(--space-9)",
+        paddingBottom: "var(--space-9)",
         display: "flex",
         flexDirection: "column",
         gap: "var(--space-9)",

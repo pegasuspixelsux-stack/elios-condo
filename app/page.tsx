@@ -21,7 +21,7 @@ export default function Home() {
       <Nav />
       <Hero />
 
-      <section style={{ maxWidth: 900, margin: "0 auto", padding: "var(--space-9) var(--space-6)", textAlign: "center" }}>
+      <section className="section-pad-x-6" style={{ maxWidth: 900, margin: "0 auto", paddingTop: "var(--space-9)", paddingBottom: "var(--space-9)", textAlign: "center" }}>
         <div className="tag tag-outline" style={{ marginBottom: "var(--space-4)" }}>
           The Experience
         </div>
